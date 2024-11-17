@@ -42,6 +42,7 @@ function App() {
   description: 'Luxury hotel with stunning city views.',
   image: 'https://via.placeholder.com/300x200?text=Hotel+Kigali+View',
 },
+
         {
             id: 2,
             name: 'Nyungwe Paradise',
