@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -12,10 +13,11 @@ const Header = () => {
                 <h1 style={styles.title}>Hotel Booking System</h1>
             </div>
             <nav style={styles.nav}>
-                <a href="#home" style={styles.link}>Home</a>
-                <a href="#about" style={styles.link}>About</a>
-                <a href="#contact" style={styles.link}>Contact</a>
-                <a href="#login" style={styles.button}>Login</a>
+                <Link to="/" style={styles.link}>Home</Link>
+                <Link to="/about" style={styles.link}>About</Link>
+                <Link to="/contact" style={styles.link}>Contact</Link>
+                <Link to="/dashboard" style={styles.link}>Dashboard</Link>
+                <Link to="/login" style={styles.button}>Login</Link>
             </nav>
         </header>
     );
@@ -58,9 +60,6 @@ const styles = {
         fontSize: '16px',
         transition: 'color 0.3s',
         padding: '5px 10px',
-    },
-    linkHover: {
-        color: '#80c1ff',
     },
     button: {
         color: '#0073e6',
