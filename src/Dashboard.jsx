@@ -10,7 +10,9 @@ const Dashboard = () => {
                     <Link to="/dashboard/hotels" style={styles.link}>
                         Manage Hotels
                     </Link>
-                   
+                    <Link to="/dashboard/hotels/add" style={styles.link}>
+                        Add Hotel
+                    </Link>
                     <Link to="/dashboard/bookings" style={styles.link}>
                         Manage Bookings
                     </Link>

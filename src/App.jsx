@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import HotelDetails from './HotelDetails.jsx';
 import Dashboard from './Dashboard.jsx';
 import HotelListAdmin from './HotelListAdmin.jsx';
+import HotelForm from './HotelForm.jsx';
 import { useState } from 'react';
 
 function App() {
@@ -20,11 +21,17 @@ function App() {
             id: 2,
             name: 'Nyungwe Paradise',
             description: 'Nestled in nature with top amenities.',
-            image: 'https://via.placeholder.com/300x200?text=Nyungwe+Paradise',
+            image: 'https://unsplash.com/photos/person-diving-on-pool-splashing-water-1qCSGzVEKKQ',
         },
         {
             id: 3,
             name: 'Volcanoes Retreat',
+            description: 'Close to the gorilla trekking trails.',
+            image: 'https://via.placeholder.com/300x200?text=Volcanoes+Retreat',
+        },
+        {
+            id: 4,
+            name: 'Volcanoes fuck up',
             description: 'Close to the gorilla trekking trails.',
             image: 'https://via.placeholder.com/300x200?text=Volcanoes+Retreat',
         },
@@ -52,11 +59,10 @@ function App() {
         setHotels((prevHotels) => prevHotels.filter((hotel) => hotel.id !== id));
     };
 
-    // Update hotel information
-    const handleEditHotel = (updatedHotel) => {
-        setHotels((prevHotels) =>
-            prevHotels.map((hotel) => (hotel.id === updatedHotel.id ? updatedHotel : hotel))
-        );
+    // Placeholder edit functionality
+    const handleEditHotel = (id) => {
+        console.log(`Edit hotel with ID: ${id}`);
+        // Implement actual edit functionality if required
     };
 
     return (
@@ -78,10 +84,9 @@ function App() {
                     />
                     {/* Hotel Details Page */}
                     <Route
-    path="/hotels/:id"
-    element={<HotelDetails hotels={hotels} />}
-/>
-
+                        path="/hotels/:id"
+                        element={<HotelDetails hotels={hotels} />}
+                    />
                     {/* Dashboard */}
                     <Route path="/dashboard" element={<Dashboard />}>
                         {/* Manage Hotels */}
@@ -92,9 +97,13 @@ function App() {
                                     hotels={hotels}
                                     onEdit={handleEditHotel}
                                     onDelete={handleDeleteHotel}
-                                    onAdd={handleAddHotel} // Add functionality here
                                 />
                             }
+                        />
+                        {/* Add Hotel */}
+                        <Route
+                            path="hotels/add"
+                            element={<HotelForm onSave={handleAddHotel} />}
                         />
                     </Route>
                 </Routes>

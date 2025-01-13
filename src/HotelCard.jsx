@@ -2,15 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const HotelCard = ({ hotel }) => {
-    const navigate = useNavigate();
-
     // Fallback image if no image is provided
-    const imageSrc = hotel.image || 'https://via.placeholder.com/300x200?text=No+Image';
-
-    // Handle click to navigate to the hotel details page
-    const handleClick = () => {
-        navigate(`/hotels/${hotel.id}`);
-    };
+    const imageSrc = hotel.image || 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojY2NjOyI+PHRleHQgeD0iNTAiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXNpemU6MjBweDsiPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
 
     return (
         <div style={styles.card} onClick={handleClick}>
@@ -19,7 +12,8 @@ const HotelCard = ({ hotel }) => {
                 alt={hotel.name}
                 style={styles.image}
                 onError={(e) => {
-                    e.target.src = 'https://via.placeholder.com/300x200?text=No+Image';
+                    e.target.src =
+                        'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMjAwIiBzdHlsZT0iYmFja2dyb3VuZC1jb2xvcjojY2NjOyI+PHRleHQgeD0iNTAiIHk9IjEwMCIgc3R5bGU9ImZpbGw6I2FhYTtmb250LXNpemU6MjBweDsiPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg==';
                 }}
             />
             <h3 style={styles.title}>{hotel.name}</h3>
@@ -38,7 +32,6 @@ const styles = {
         overflow: 'hidden',
         textAlign: 'center',
         background: '#fff',
-        cursor: 'pointer', // Makes it clear the card is clickable
     },
     image: {
         width: '100%',
